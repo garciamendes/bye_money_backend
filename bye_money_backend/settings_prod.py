@@ -1,14 +1,12 @@
-import dj_database_url
 import os
 
-
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL', ''),
-        conn_max_age=600,
-        conn_health_checks=True,
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'garciaprog$default',   # o nome do banco que você criou
+        'USER': 'garciaprog',           # seu username no PythonAnywhere
+        'PASSWORD': os.getenv('PASSWORD_MYSQL', ''),        # senha que você escolheu
+        'HOST': 'garciaprog.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
+    }
 }
