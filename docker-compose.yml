@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:14
+    container_name: bye_money-pg
+    environment:
+      POSTGRES_DB: bye_moneydb
+      POSTGRES_USER: bye_money
+      POSTGRES_PASSWORD: bye_money
+    network_mode: bridge
+    ports:
+      - 5432:5432
+    volumes:
+      - bye_money_pg_data:/var/lib/postgresql/data
+
+volumes:
+  bye_money_pg_data:
+    driver: local
