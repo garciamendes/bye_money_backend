@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'corsheaders',
+    'django_extensions',
 
     'core'
 ]
@@ -86,12 +87,15 @@ WSGI_APPLICATION = 'bye_money_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME', 'postgresdb'),
-        'USER': os.getenv('DB_USER', 'postgres'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'postgres'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('DB_NAME', 'bye_moneydb'),
+        'USER': os.getenv('DB_USER', 'bye_money'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'bye_money'),
         'HOST': os.getenv('DB_HOST', '127.0.0.1'),
-        'PORT': os.getenv('DB_PORT', '5432'),
+        'PORT': os.getenv('DB_PORT', '3306'),
+        'OPTIONS': {
+            'charset': 'utf8mb4',  # garante compatibilidade com emojis etc
+        },
     }
 }
 

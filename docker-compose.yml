@@ -1,18 +1,18 @@
 version: "3.8"
 services:
-  postgres:
-    image: postgres:14
-    container_name: bye_money-pg
+  mysql:
+    image: mysql:8.0
+    container_name: bye_money-mysql
     environment:
-      POSTGRES_DB: bye_moneydb
-      POSTGRES_USER: bye_money
-      POSTGRES_PASSWORD: bye_money
-    network_mode: bridge
+      MYSQL_DATABASE: bye_moneydb
+      MYSQL_USER: bye_money
+      MYSQL_PASSWORD: bye_money
+      MYSQL_ROOT_PASSWORD: root
     ports:
-      - 5432:5432
+      - "3306:3306"
     volumes:
-      - bye_money_pg_data:/var/lib/postgresql/data
+      - bye_money_mysql_data:/var/lib/mysql
 
 volumes:
-  bye_money_pg_data:
+  bye_money_mysql_data:
     driver: local
