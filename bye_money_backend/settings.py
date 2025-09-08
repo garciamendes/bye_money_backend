@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_extensions',
 
-    'core'
+    'core',
+    'account'
 ]
 
 MIDDLEWARE = [
